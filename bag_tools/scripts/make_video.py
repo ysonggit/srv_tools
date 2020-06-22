@@ -56,7 +56,7 @@ def create_video(tmp_dir, args):
     i = i + 1
 
   rospy.loginfo('Creating video...')
-  cmd = ["ffmpeg", "-f", "image2", "-r", str(args.fps), "-i", tmp_dir + "/img-%d.jpg", args.output]
+  cmd = ["ffmpeg", "-f", "image2", "-r", str(args.fps), "-i", tmp_dir + "/img-%d.jpg", "-qscale", "0", args.output]
   rospy.loginfo('    {}'.format(' '.join(cmd)))
   subprocess.call(cmd)
 
